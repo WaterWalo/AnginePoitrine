@@ -1,0 +1,840 @@
+/* ====================================
+   CSS Variables
+   ==================================== */
+:root {
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-grey-light: #f5f5f5;
+    --color-grey: #999999;
+
+    --font-title: 'Londrina Outline', cursive;
+    --font-heading: 'Roboto Mono', monospace;
+    --font-body: 'Roboto Mono', monospace;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    --max-width: 1200px;
+    --header-height: 80px;
+
+    --transition: all 0.3s ease;
+}
+
+/* ====================================
+   Reset & Base Styles
+   ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Subtle Dotted Background Pattern with Imperfect Circles */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    background-image:
+        radial-gradient(circle at 8% 6%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 18% 12%, var(--color-black) 2.5px, transparent 2.5px),
+        radial-gradient(circle at 28% 5%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 42% 10%, var(--color-black) 3px, transparent 3px),
+        radial-gradient(circle at 55% 8%, var(--color-black) 2.2px, transparent 2.2px),
+        radial-gradient(circle at 68% 14%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 78% 6%, var(--color-black) 2.8px, transparent 2.8px),
+        radial-gradient(circle at 88% 11%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 95% 15%, var(--color-black) 2.5px, transparent 2.5px),
+        radial-gradient(circle at 5% 22%, var(--color-black) 2.3px, transparent 2.3px),
+        radial-gradient(circle at 15% 28%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 25% 24%, var(--color-black) 2.7px, transparent 2.7px),
+        radial-gradient(circle at 38% 30%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 48% 26%, var(--color-black) 2.4px, transparent 2.4px),
+        radial-gradient(circle at 62% 32%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 72% 28%, var(--color-black) 3px, transparent 3px),
+        radial-gradient(circle at 85% 24%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 92% 30%, var(--color-black) 2.6px, transparent 2.6px),
+        radial-gradient(circle at 10% 42%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 22% 38%, var(--color-black) 2.8px, transparent 2.8px),
+        radial-gradient(circle at 32% 44%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 45% 40%, var(--color-black) 2.5px, transparent 2.5px),
+        radial-gradient(circle at 58% 46%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 70% 42%, var(--color-black) 2.3px, transparent 2.3px),
+        radial-gradient(circle at 80% 48%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 90% 44%, var(--color-black) 3px, transparent 3px),
+        radial-gradient(circle at 6% 58%, var(--color-black) 2.4px, transparent 2.4px),
+        radial-gradient(circle at 17% 54%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 28% 60%, var(--color-black) 2.7px, transparent 2.7px),
+        radial-gradient(circle at 40% 56%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 52% 62%, var(--color-black) 2.5px, transparent 2.5px),
+        radial-gradient(circle at 64% 58%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 75% 64%, var(--color-black) 2.8px, transparent 2.8px),
+        radial-gradient(circle at 88% 60%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 95% 56%, var(--color-black) 2.3px, transparent 2.3px),
+        radial-gradient(circle at 12% 74%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 24% 70%, var(--color-black) 3px, transparent 3px),
+        radial-gradient(circle at 35% 76%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 48% 72%, var(--color-black) 2.6px, transparent 2.6px),
+        radial-gradient(circle at 60% 78%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 72% 74%, var(--color-black) 2.4px, transparent 2.4px),
+        radial-gradient(circle at 82% 80%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 93% 76%, var(--color-black) 2.7px, transparent 2.7px),
+        radial-gradient(circle at 8% 88%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 20% 92%, var(--color-black) 2.5px, transparent 2.5px),
+        radial-gradient(circle at 32% 86%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 45% 94%, var(--color-black) 2.8px, transparent 2.8px),
+        radial-gradient(circle at 58% 90%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 70% 96%, var(--color-black) 2.3px, transparent 2.3px),
+        radial-gradient(circle at 82% 92%, var(--color-black) 2px, transparent 2px),
+        radial-gradient(circle at 92% 88%, var(--color-black) 3px, transparent 3px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-black);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ====================================
+   Header & Navigation
+   ==================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-white);
+    border-bottom: 2px solid var(--color-black);
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+}
+
+.header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.site-logo {
+    flex: 0 1 auto;
+    order: 1;
+}
+
+.site-title {
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.site-title a {
+    display: inline-block;
+}
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    order: 2;
+}
+
+.lang-btn {
+    padding: 0.25rem 0.5rem;
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.lang-btn:hover {
+    opacity: 0.7;
+}
+
+.lang-btn.active {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.lang-divider {
+    color: var(--color-black);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: var(--spacing-xs);
+    z-index: 1001;
+    flex-shrink: 0;
+    order: 3;
+    margin-left: auto;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-black);
+    transition: var(--transition);
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Navigation Menu (Mobile First) */
+.main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--color-black);
+    padding: var(--spacing-xl) var(--spacing-md);
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.main-nav.active {
+    right: 0;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.nav-menu a {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.nav-menu i {
+    font-size: 1rem;
+}
+
+/* ====================================
+   Hero Section
+   ==================================== */
+.hero-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) 0;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+.hero-image {
+    margin-bottom: var(--spacing-md);
+    border: 3px solid var(--color-black);
+    overflow: hidden;
+}
+
+.hero-image video,
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-description {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ====================================
+   About Section
+   ==================================== */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.band-members {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.member {
+    border: 2px solid var(--color-black);
+    padding: var(--spacing-md);
+}
+
+.member h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-xs);
+}
+
+.member-role {
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-grey);
+}
+
+.member-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* ====================================
+   Music Section
+   ==================================== */
+.music-player {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border: 2px solid var(--color-black);
+    transition: var(--transition);
+}
+
+.track-item:hover {
+    background-color: var(--color-grey-light);
+}
+
+.track-item.playing {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.play-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.track-item.playing .play-btn {
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+.play-btn:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.track-item.playing .play-btn:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.track-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.track-duration {
+    font-size: 0.875rem;
+    color: var(--color-grey);
+}
+
+.track-item.playing .track-duration {
+    color: var(--color-white);
+}
+
+.audio-player {
+    border: 2px solid var(--color-black);
+    padding: var(--spacing-md);
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    transition: var(--transition);
+}
+
+.control-btn:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-grey-light);
+    border: 1px solid var(--color-black);
+    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-black);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    font-family: var(--font-heading);
+}
+
+/* ====================================
+   Videos Section
+   ==================================== */
+.video-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border: 2px solid var(--color-black);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.youtube-link {
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.youtube-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--color-black);
+    transition: var(--transition);
+}
+
+.youtube-link a:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    opacity: 1;
+}
+
+/* ====================================
+   Concerts Section
+   ==================================== */
+.concerts-widget {
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.widget-note {
+    text-align: center;
+    color: var(--color-grey);
+    font-style: italic;
+}
+
+/* ====================================
+   Shop Section
+   ==================================== */
+.shop-intro {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.shop-note {
+    text-align: center;
+    color: var(--color-grey);
+    font-style: italic;
+    padding: var(--spacing-xl);
+}
+
+/* ====================================
+   Press Section
+   ==================================== */
+.press-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.press-intro {
+    margin-bottom: var(--spacing-lg);
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--color-black);
+    transition: var(--transition);
+}
+
+.download-btn:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    opacity: 1;
+}
+
+/* ====================================
+   Footer
+   ==================================== */
+.site-footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.footer-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+}
+
+.booking-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.booking-region h3 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.05em;
+}
+
+.booking-region p {
+    font-size: 0.875rem;
+    margin: 0.25rem 0;
+}
+
+.booking-region a {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+.booking-region a:hover {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.875rem;
+}
+
+/* ====================================
+   Tablet & Desktop Styles (768px+)
+   ==================================== */
+@media (min-width: 768px) {
+    .header-container {
+        gap: var(--spacing-lg);
+    }
+
+    .site-title {
+        font-size: 2.5rem;
+    }
+
+    .language-switcher {
+        order: 3;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Show horizontal navigation */
+    .main-nav {
+        position: static;
+        width: auto;
+        max-width: none;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        order: 2;
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: var(--spacing-md);
+        width: 100%;
+    }
+
+    .nav-menu li {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-menu a {
+        color: var(--color-black);
+        font-size: 0.875rem;
+    }
+
+    .nav-menu a:hover {
+        transform: none;
+        opacity: 0.7;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        min-height: 80vh;
+    }
+
+    .hero-content {
+        max-width: 1400px;
+    }
+
+    .hero-description {
+        font-size: 1.25rem;
+    }
+
+    /* Band Members Grid */
+    .band-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Video Grid */
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-item.featured {
+        grid-column: 1 / -1;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Booking Grid */
+    .booking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* ====================================
+   Large Desktop (1024px+)
+   ==================================== */
+@media (min-width: 1024px) {
+    .site-title {
+        font-size: 3rem;
+    }
+
+    .nav-menu {
+        gap: var(--spacing-lg);
+    }
+
+    .nav-menu a {
+        font-size: 1rem;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Booking Grid */
+    .booking-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ====================================
+   Utilities
+   ==================================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,56 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Audio files (large files)
+# Uncomment if you want to exclude audio from git
+# audio/*.mp3
+# audio/*.wav
+# audio/*.flac
+
+# Images (if very large)
+# Uncomment if you want to exclude large images
+# images/*.jpg
+# images/*.png
+
+# Shopify credentials (IMPORTANT - never commit)
+shopify-config.js
+*-credentials.json
+
+# Backup files
+*.bak
+*.backup
+
+# Cache
+.cache/
+*.cache
