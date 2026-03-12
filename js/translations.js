@@ -3,7 +3,7 @@ const translations = {
     fr: {
         // Navigation
         'nav-home': 'Accueil',
-        'nav-about': 'À propos',
+        'nav-about': 'Propos',
         'nav-music': 'Musique',
         'nav-videos': 'Vidéos',
         'nav-concerts': 'Concerts',
